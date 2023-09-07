@@ -1,7 +1,7 @@
 .App {
   font-family: Inter, Arial, sans-serif;
-  min-width: 320px;
-  background-color: black;
+  background-color: #e5e5e5;
   color: white;
+  width: 100%;
   min-height: 100vh;
 }

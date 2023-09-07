@@ -1,0 +1,82 @@
+.about-me {
+  display: grid;
+  grid-template:
+    "title title" min-content
+    "name photo" min-content
+    "bio photo" min-content
+    "info photo" min-content
+    "repo photo" 1fr / auto max-content;
+  min-height: 554px;
+  box-sizing: border-box;
+  padding: 0 70px;
+  background-color: white;
+  color: black;
+}
+
+.about-me__title {
+  grid-area: title;
+  margin: 110px 0 66px;
+  padding: 0 0 23px;
+  border-bottom: solid 1px black;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+}
+
+.about-me__name {
+  grid-area: name;
+  margin: 0 0 18px;
+  padding: 0;
+  width: max-content;
+  height: max-content;
+  align-self: start;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+}
+
+.about-me__bio {
+  grid-area: bio;
+  margin: 0 0 26px;
+  padding: 0;
+  width: max-content;
+  height: max-content;
+  align-self: start;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.about-me__info {
+  grid-area: info;
+  margin: 0;
+  padding: 0;
+  max-width: 600px;
+  width: max-content;
+  height: max-content;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.about-me__repo {
+  grid-area: repo;
+  margin: 0 0 1px;
+  padding: 0;
+  width: max-content;
+  height: max-content;
+  align-self: end;
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+}
+
+.about-me__photo {
+  grid-area: photo;
+  max-width: 270px;
+  border-radius: 10px;
+}

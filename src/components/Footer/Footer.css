@@ -1,0 +1,39 @@
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  min-height: 172px;
+  box-sizing: border-box;
+  padding: 0 70px;
+  background-color: white;
+  color: black;
+}
+
+.footer__title {
+  width: 100%;
+  height: max-content;
+  margin: 79px 0 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  border-bottom: solid 1px #E8E8E8;
+  color: #A0A0A0;
+}
+
+.footer__copyright {
+  margin: 20px auto 20px 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.footer__link {
+  margin: 20px 0 20px 20px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  text-decoration: none;
+  color: black;
+}
