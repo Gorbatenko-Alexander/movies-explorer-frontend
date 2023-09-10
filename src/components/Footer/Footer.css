@@ -1,10 +1,10 @@
 .footer {
   display: flex;
   flex-wrap: wrap;
-  align-content: start;
   min-height: 172px;
   box-sizing: border-box;
   padding: 0 70px;
+  margin-top: auto;
   background-color: white;
   color: black;
 }
@@ -36,4 +36,9 @@
   line-height: 16px;
   text-decoration: none;
   color: black;
+  transition: 0.2s;
+}
+
+.footer__link:hover {
+  opacity: 70%;
 }

@@ -1,0 +1,131 @@
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: auto;
+  width: 410px;
+}
+
+.profile__title {
+  margin: 4px 0 123px;
+  padding: 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  text-align: center;
+}
+
+.profile__form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.profile__field {
+  margin: 0;
+  padding: 0 0 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.profile__field:last-of-type {
+  padding: 17px 0 0;
+  border: none;
+}
+
+.profile__field-title {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 13px;
+}
+
+.profile__field-input {
+  margin: 0;
+  padding: 0;
+  flex-grow: 1;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 13px;
+  text-align: right;
+  border: none;
+  background: none;
+}
+
+.profile__field-input:focus {
+  outline: none;
+}
+
+.profile__error {
+  width: 100%;
+  height: 14px;
+  margin: 189px auto 20px;
+  padding: 0;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 13px;
+  color: #FF004C;
+  text-align: center;
+}
+
+.profile__error_inactive {
+  display: none;
+}
+
+.profile__submit-button {
+  width: 100%;
+  margin: 0;
+  padding: 13px 0 15px;
+  border: none;
+  border-radius: 3px;
+  background-color: #3456F3;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  color: white;
+}
+
+.profile__submit-button:hover {
+  cursor: pointer;
+  background-color: rgba(52, 86, 243, 0.8);
+}
+
+.profile__edit-button_saving {
+  color: #C2C2C2;
+  background-color: #F8F8F8;
+}
+
+.profile__submit-button_inactive {
+  display: none;
+}
+
+.profile__edit-button {
+  margin: 220px auto 16px;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.profile__edit-button_inactive {
+  display: none;
+}
+
+.profile__logout-link {
+  margin: auto;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #FF3055;
+  text-decoration: none;
+}
+
+.profile__logout-link_inactive {
+  display: none;
+}

@@ -1,5 +1,4 @@
 import "./Main.css";
-import React from 'react';
 
 import Page from "../Page/Page";
 import Header from "../Header/Header";
@@ -11,7 +10,6 @@ import AboutMe from "./AboutMe/AboutMe";
 import Portfolio from "./Portfolio/Portfolio";
 
 function Main (props) {
-
   return (
     <Page>
       <Header isLoggedIn={false} />

@@ -9,28 +9,55 @@ function Header(props) {
 
   return (
     <header className={`header ${props.isLight && "header_light"}`}>
-      <img src={logo} alt="лого" className="header__logo"/>
+      <img src={logo} alt="лого"
+           className={`header__logo`}
+           onClick={(evt) => {evt.preventDefault(); navigate('/');}}
+      />
+
       {/* Авторизованный пользователь */}
+
       {props.isLoggedIn && (
-        <a className={`header__link ${props.isLight && "header__link_light"}`} href='/movies'>Фильмы</a>
+        <nav className="header__nav-bar">
+          <a href='/movies'
+             className={`header__link
+             ${props.isLight && "header__link_light"}
+             ${window.location.pathname === "/movies" && "header__link_inactive"}`}
+             onClick={(evt) => {evt.preventDefault(); navigate('/movies');}}
+          >Фильмы</a>
+
+          <a href='/saved-movies'
+             className={`header__link
+             ${props.isLight && "header__link_light"}
+             ${window.location.pathname === "/saved-movies" && "header__link_inactive"}`}
+             onClick={(evt) => {evt.preventDefault(); navigate('/saved-movies');}}
+          >Сохранённые фильмы</a>
+        </nav>
       )}
+
       {props.isLoggedIn && (
-        <a className={`header__link ${props.isLight && "header__link_light"}`} href='/saved-movies'>Сохранённые фильмы</a>
+        <button
+          className={`header__button ${props.isLight && "header__button_light"}`}
+          onClick={(evt) => {evt.preventDefault(); navigate('/profile');}}
+        >Аккаунт <img src={accountIcon} alt="аккаунт" className='header__account-icon' /></button>
       )}
-      {props.isLoggedIn && (
-        <button className={`header__button ${props.isLight && "header__button_light"}`}>
-          Аккаунт <img src={accountIcon} alt="аккаунт" className='header__account-icon' />
-        </button>
-      )}
+
       {/* Неавторизованный пользователь */}
+
       {!props.isLoggedIn && (
-        <a className={`header__link header__link_notAuth ${props.isLight && "header__link_light"}`} href='/signup'>
-          Регистрация
-        </a>
-      )}
+        <a href='/signup'
+           className={`header__link header__link_notAuth
+           ${props.isLight && "header__link_light"}
+           ${window.location.pathname === "/signup" && "header__link_inactive"}`}
+           onClick={(evt) => {evt.preventDefault(); navigate('/signup');}}
+        >Регистрация</a>)}
+
       {!props.isLoggedIn && (
-        <button className={`header__button header__button_notAuth ${props.isLight && "header__button_light"}`}>Войти</button>
-      )}
+        <button
+          className={`header__button header__button_notAuth
+          ${props.isLight && "header__button_light"}`}
+          onClick={(evt) => {evt.preventDefault(); navigate('/signin');}}
+        >Войти</button>)}
+
     </header>
   );
 }

@@ -78,5 +78,7 @@
 .about-me__photo {
   grid-area: photo;
   max-width: 270px;
+  aspect-ratio: 270/327;
   border-radius: 10px;
+  object-fit: cover;
 }
