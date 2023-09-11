@@ -56,6 +56,10 @@
   border-bottom: 1px solid #E8E8E8;
 }
 
+.register__field-input_bold {
+  font-weight: 500;
+}
+
 .register__field-input:focus {
   outline: none;
   border-bottom: 1px solid #3456F3;
@@ -66,6 +70,7 @@
 }
 
 .register__field-error {
+  max-width: 250px;
   margin: 6px 0;
   padding: 0;
   height: 12px;
@@ -73,6 +78,9 @@
   font-weight: 400;
   line-height: 12px;
   color: #FF3055;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .register__button {
@@ -85,6 +93,7 @@
   border: none;
   border-radius: 3px;
   background-color: #3456F3;
+  transition: 0.2s;
 }
 
 .register__button:hover {
@@ -108,4 +117,45 @@
   margin-left: 6px;
   text-decoration: none;
   color: #3456F3;
+  transition: 0.2s;
+}
+
+.register__info-link:hover {
+  opacity: 70%;
+}
+
+@media screen and (max-width: 740px) {
+  .register {
+    width: 260px;
+    flex-grow: 1;
+    padding: 56px 0 30px;
+  }
+
+  .register__logo {
+    width: 38px;
+    aspect-ratio: 1/1;
+    margin: 0 auto 50px;
+  }
+
+  .register__title {
+    margin: 0 auto 80px;
+  }
+
+  .register__form {
+    flex-grow: 1;
+  }
+
+  .register__button {
+    margin: auto 0 14px;
+    padding: 15px 0 15px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+  }
+
+  .register__info {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+  }
 }

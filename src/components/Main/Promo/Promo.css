@@ -11,6 +11,14 @@
   color: white;
 }
 
+.promo__logo{
+  width: 310px;
+  aspect-ratio: 310/304;
+  position: absolute;
+  top: 75px;
+  right: 70px;
+}
+
 .promo__title {
   padding: 0;
   margin: 75px 0 0;
@@ -48,8 +56,66 @@
   opacity: 80%;
 }
 
-.promo__logo{
-  position: absolute;
-  top: 75px;
-  right: 70px;
+@media screen and (max-width: 1100px) {
+  .promo {
+    align-items: center;
+    padding: 0 44px;
+  }
+
+  .promo__logo{
+    margin: 140px auto 48px;
+    position: static;
+  }
+
+  .promo__title {
+    margin: 0 auto 22px;
+    max-width: 680px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 50px;
+  }
+
+  .promo__description {
+    margin: 0 auto 92px;
+    max-width: 260px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  .promo__button {
+    padding: 9px 19px;
+    margin: 0 auto 76px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .promo {
+    padding: 0 10px;
+  }
+
+  .promo__logo{
+    margin: 70px auto 44px;
+    width: 210px;
+  }
+
+  .promo__title {
+    margin: 0 auto 24px;
+    max-width: 300px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 38px;
+    letter-spacing: -0.04em;
+  }
+
+  .promo__description {
+    margin: 0 auto 80px;
+  }
+
+  .promo__button {
+    margin: 0 auto 30px;
+  }
 }

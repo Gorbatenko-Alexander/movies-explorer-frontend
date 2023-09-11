@@ -4,7 +4,11 @@ import logo from "../../images/logo.svg";
 import accountIcon from "../../images/icon-account.svg"
 import {useNavigate} from "react-router-dom";
 
+import Navigation from "../Navigation/Navigation";
+
 function Header(props) {
+  const [isNavigationOpened, setIsNavigationOpened] = React.useState(false);
+
   const navigate = useNavigate();
 
   return (
@@ -21,14 +25,14 @@ function Header(props) {
           <a href='/movies'
              className={`header__link
              ${props.isLight && "header__link_light"}
-             ${window.location.pathname === "/movies" && "header__link_inactive"}`}
+             ${window.location.pathname === "/movies" && "header__link_active"}`}
              onClick={(evt) => {evt.preventDefault(); navigate('/movies');}}
           >Фильмы</a>
 
           <a href='/saved-movies'
              className={`header__link
              ${props.isLight && "header__link_light"}
-             ${window.location.pathname === "/saved-movies" && "header__link_inactive"}`}
+             ${window.location.pathname === "/saved-movies" && "header__link_active"}`}
              onClick={(evt) => {evt.preventDefault(); navigate('/saved-movies');}}
           >Сохранённые фильмы</a>
         </nav>
@@ -41,13 +45,24 @@ function Header(props) {
         >Аккаунт <img src={accountIcon} alt="аккаунт" className='header__account-icon' /></button>
       )}
 
+      {props.isLoggedIn && (
+        <button
+          className={`header__menu-button ${props.isLight && "header__menu-button_light"}`}
+          onClick={(evt) => {
+            evt.preventDefault();
+            setIsNavigationOpened(true);
+            document.body.style.overflow = "hidden";
+          }}
+        />
+      )}
+
       {/* Неавторизованный пользователь */}
 
       {!props.isLoggedIn && (
         <a href='/signup'
            className={`header__link header__link_notAuth
            ${props.isLight && "header__link_light"}
-           ${window.location.pathname === "/signup" && "header__link_inactive"}`}
+           ${window.location.pathname === "/signup" && "header__link_active"}`}
            onClick={(evt) => {evt.preventDefault(); navigate('/signup');}}
         >Регистрация</a>)}
 
@@ -58,6 +73,7 @@ function Header(props) {
           onClick={(evt) => {evt.preventDefault(); navigate('/signin');}}
         >Войти</button>)}
 
+      <Navigation isOpened={isNavigationOpened} setIsOpened={setIsNavigationOpened} />
     </header>
   );
 }

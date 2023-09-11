@@ -12,7 +12,7 @@ function Movies (props) {
       <Header isLoggedIn={true} isLight={true} />
       <main className="movies">
         <SearchForm />
-        <MoviesCardList cards={props.cards} />
+        <MoviesCardList cards={props.cards} size={props.size} />
       </main>
       <Footer />
     </Page>

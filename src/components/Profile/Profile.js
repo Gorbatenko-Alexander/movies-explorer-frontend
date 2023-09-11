@@ -5,7 +5,7 @@ import Header from "../Header/Header";
 import {useNavigate} from "react-router-dom";
 import React from "react";
 
-function Profile (props) {
+function Profile () {
   const [isEditing, setIsEditing] = React.useState(false);
 
   const navigate = useNavigate();
@@ -14,16 +14,16 @@ function Profile (props) {
     <Page>
       <Header isLight={true} isLoggedIn={true} />
       <main className="profile">
-        <p className="profile__title">Добро пожаловать!</p>
+        <p className="profile__title">Привет, Виталий!</p>
         <form className="profile__form">
           <label className="profile__field">
-            <span className="profile__field-title">E-mail</span>
-            <input type="text" name="email" defaultValue="Виталий"
+            <span className="profile__field-title">Имя</span>
+            <input type="text" name="name" defaultValue="Виталий"
                    readOnly={!isEditing} className="profile__field-input" />
           </label>
           <label className="profile__field">
-            <span className="profile__field-title">Пароль</span>
-            <input type="text" name="password" defaultValue="pochta@yandex.ru"
+            <span className="profile__field-title">E-mail</span>
+            <input type="text" name="email" defaultValue="pochta@yandex.ru"
                    readOnly={!isEditing} className="profile__field-input" />
           </label>
           <p className={`profile__error ${!isEditing && "profile__error_inactive"}`}>

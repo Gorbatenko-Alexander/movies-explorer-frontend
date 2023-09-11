@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   min-height: 172px;
   box-sizing: border-box;
-  padding: 0 70px;
+  padding: 79px 70px 0;
   margin-top: auto;
   background-color: white;
   color: black;
@@ -12,7 +12,7 @@
 .footer__title {
   width: 100%;
   height: max-content;
-  margin: 79px 0 0;
+  margin: 0;
   padding: 0 0 20px;
   text-align: center;
   font-size: 13px;
@@ -29,6 +29,16 @@
   line-height: 16px;
 }
 
+.footer__copyright-symbol {
+  margin: 0 4px 0 0;
+}
+
+.footer__links {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
 .footer__link {
   margin: 20px 0 20px 20px;
   font-size: 13px;
@@ -41,4 +51,62 @@
 
 .footer__link:hover {
   opacity: 70%;
+}
+
+@media screen and (max-width: 1100px) {
+  .footer {
+    padding: 79px 30px 0;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .footer {
+    display: grid;
+    justify-items: center;
+    grid-template:
+    "title" min-content
+    "links" min-content
+    "copyright" min-content / 1fr;
+    padding: 79px 10px 0;
+  }
+
+  .footer__title {
+    grid-area: title;
+    width: 100%;
+    height: max-content;
+    margin: 0;
+    padding: 0 0 21px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+  }
+
+  .footer__copyright {
+    grid-area: copyright;
+    margin: 30px 0 20px 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    color: #A0A0A0;
+  }
+
+  .footer__copyright-symbol {
+    margin: 0;
+  }
+
+  .footer__links {
+    margin: 30px 0 0;
+    grid-area: links;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer__link {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+  }
 }

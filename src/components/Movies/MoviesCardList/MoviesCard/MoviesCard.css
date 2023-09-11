@@ -8,7 +8,8 @@
 
 .movies-card__picture {
   width: 100%;
-  aspect-ratio: 270/151;
+  aspect-ratio: 339/190;
+  object-fit: cover;
 }
 
 .movies-card__title {
@@ -64,4 +65,28 @@
   line-height: 13px;
   color: #A0A0A0;
   border-top: 1px solid #E8E8E8;
+}
+
+@media screen and (max-width: 740px) {
+  .movies-card__picture {
+    aspect-ratio: 300/168;
+  }
+
+  .movies-card__title {
+    width: calc(100% - 44px);
+    height: 30px;
+    margin: 15px 0 14px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+  }
+
+  .movies-card__duration {
+    width: 100%;
+    margin: 0;
+    padding: 6px 0 0;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+  }
 }
