@@ -1,0 +1,121 @@
+.promo {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  min-height: 574px;
+  padding: 0 70px;
+  box-sizing: border-box;
+  background-color: #073042;
+  color: white;
+}
+
+.promo__logo{
+  width: 310px;
+  aspect-ratio: 310/304;
+  position: absolute;
+  top: 75px;
+  right: 70px;
+}
+
+.promo__title {
+  padding: 0;
+  margin: 75px 0 0;
+  max-width: 640px;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 58px;
+}
+
+.promo__description {
+  padding: 0;
+  margin: 36px 0 0;
+  max-width: 310px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  opacity: 50%;
+}
+
+.promo__button {
+  padding: 9px 19px;
+  margin: auto 0 75px;
+  background-color: transparent;
+  color: white;
+  border: solid 1px rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  transition: 0.2s;
+}
+
+.promo__button:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+
+@media screen and (max-width: 1100px) {
+  .promo {
+    align-items: center;
+    padding: 0 44px;
+  }
+
+  .promo__logo{
+    margin: 140px auto 48px;
+    position: static;
+  }
+
+  .promo__title {
+    margin: 0 auto 22px;
+    max-width: 680px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 50px;
+  }
+
+  .promo__description {
+    margin: 0 auto 92px;
+    max-width: 260px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  .promo__button {
+    padding: 9px 19px;
+    margin: 0 auto 76px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .promo {
+    padding: 0 10px;
+  }
+
+  .promo__logo{
+    margin: 70px auto 44px;
+    width: 210px;
+  }
+
+  .promo__title {
+    margin: 0 auto 24px;
+    max-width: 300px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 38px;
+    letter-spacing: -0.04em;
+  }
+
+  .promo__description {
+    margin: 0 auto 80px;
+  }
+
+  .promo__button {
+    margin: 0 auto 30px;
+  }
+}

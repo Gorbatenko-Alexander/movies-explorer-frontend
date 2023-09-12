@@ -1,0 +1,161 @@
+.login {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: auto;
+  width: 396px;
+}
+
+.login__logo {
+  width: 38px;
+  aspect-ratio: 1/1;
+  margin: 0 0 40px;
+}
+
+.login__logo:hover {
+  cursor: pointer;
+}
+
+.login__title {
+  margin: 0 0 40px;
+  padding: 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+}
+
+.login__form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.login__field {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.login__field-title {
+  margin: 0 0 5px;
+  padding: 0;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  color: #A0A0A0;
+}
+
+.login__field-input {
+  margin: 0;
+  padding: 0 0 10px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  border: none;
+  background: none;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.login__field-input_bold {
+  font-weight: 500;
+}
+
+.login__field-input:focus {
+  outline: none;
+  border-bottom: 1px solid #3456F3;
+}
+
+.login__field-input_invalid {
+  color: #FF3055;
+}
+
+.login__field-error {
+  max-width: 250px;
+  margin: 6px 0;
+  padding: 0;
+  height: 12px;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  color: #FF3055;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.login__button {
+  margin: 197px 0 16px;
+  padding: 13px 0 15px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  background-color: #3456F3;
+  transition: 0.2s;
+}
+
+.login__button:hover {
+  cursor: pointer;
+  background-color: rgba(52, 86, 243, 0.8);
+}
+
+.login__info {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  color: #A0A0A0;
+  text-align: center;
+}
+
+.login__info-link {
+  width: 100%;
+  margin-left: 7px;
+  text-decoration: none;
+  color: #3456F3;
+  transition: 0.2s;
+}
+
+.login__info-link:hover {
+  opacity: 70%;
+}
+
+@media screen and (max-width: 740px) {
+  .login {
+    width: 260px;
+    flex-grow: 1;
+    padding: 56px 0 30px;
+  }
+
+  .login__logo {
+    width: 38px;
+    aspect-ratio: 1/1;
+    margin: 0 auto 50px;
+  }
+
+  .login__title {
+    margin: 0 auto 80px;
+  }
+
+  .login__form {
+    flex-grow: 1;
+  }
+
+  .login__button {
+    margin: auto 0 14px;
+    padding: 15px 0 15px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+  }
+
+  .login__info {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+  }
+}
