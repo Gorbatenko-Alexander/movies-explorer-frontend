@@ -3,9 +3,19 @@ import "./Login.css";
 import Page from "../Page/Page";
 import logo from "../../images/logo.svg";
 import {useNavigate} from "react-router-dom";
+import FormField from "../FormField/FormField";
+import React from "react";
 
 function Login () {
+  const [emailValue, setEmailValue] = React.useState("");
+  const [passwordValue, setPasswordValue] = React.useState("");
+  const [isValid, setIsValid] = React.useState(false);
+
   const navigate = useNavigate();
+
+  const handleFormChange = (evt) => {
+    setIsValid(evt.target.closest("form").checkValidity());
+  }
 
   return (
     <Page>
@@ -14,19 +24,12 @@ function Login () {
              onClick={(evt) => {evt.preventDefault(); navigate('/');}}
         />
         <p className="login__title">Рады видеть!</p>
-        <form className="login__form">
-          <label className="login__field">
-            <span className="login__field-title">E-mail</span>
-            <input type="text" name="email" defaultValue="pochta@yandex.ru"
-                   className="login__field-input login__field-input_bold" />
-            <span className="login__field-error"></span>
-          </label>
-          <label className="login__field">
-            <span className="login__field-title">Пароль</span>
-            <input type="password" name="password" className="login__field-input" />
-            <span className="login__field-error"></span>
-          </label>
-          <button type="submit" className="login__button">Войти</button>
+        <form className="login__form" onChange={handleFormChange}>
+          <FormField value={emailValue} setValue={setEmailValue} name={"email"} type={"email"} title={"E-mail"}
+                     required={true} min={2} max={40} />
+          <FormField value={passwordValue} setValue={setPasswordValue} name={"password"} type={"password"} title={"Пароль"}
+                     required={true} min={2} max={40} />
+          <button type="submit" className={`login__button ${!isValid && "login__button_disabled"}`}>Войти</button>
         </form>
         <p className="login__info">
           Ещё не зарегистрированы?

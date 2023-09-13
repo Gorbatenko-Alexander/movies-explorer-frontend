@@ -30,59 +30,6 @@
   flex-direction: column;
 }
 
-.login__field {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
-.login__field-title {
-  margin: 0 0 5px;
-  padding: 0;
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 12px;
-  color: #A0A0A0;
-}
-
-.login__field-input {
-  margin: 0;
-  padding: 0 0 10px;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 17px;
-  border: none;
-  background: none;
-  border-bottom: 1px solid #E8E8E8;
-}
-
-.login__field-input_bold {
-  font-weight: 500;
-}
-
-.login__field-input:focus {
-  outline: none;
-  border-bottom: 1px solid #3456F3;
-}
-
-.login__field-input_invalid {
-  color: #FF3055;
-}
-
-.login__field-error {
-  max-width: 250px;
-  margin: 6px 0;
-  padding: 0;
-  height: 12px;
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 12px;
-  color: #FF3055;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
 .login__button {
   margin: 197px 0 16px;
   padding: 13px 0 15px;
@@ -94,6 +41,12 @@
   border-radius: 3px;
   background-color: #3456F3;
   transition: 0.2s;
+}
+
+.login__button_disabled {
+  pointer-events: none;
+  background-color: #F8F8F8;
+  color: #C2C2C2;
 }
 
 .login__button:hover {

@@ -1,8 +1,11 @@
 import "./SearchForm.css";
 
 import FilterCheckbox from "./FilterCheckbox/FilterCheckbox";
+import React from "react";
 
 function SearchForm () {
+  const [isValid, setIsValid] = React.useState(false);
+
   return (
     <section aria-label="поиск" className="search">
       <form className="search__form">

@@ -16,6 +16,7 @@
   margin: 0 0 32px;
   padding: 0 0 13px;
   border-bottom: solid 1px #E8E8E8;
+  transition: 0.2s;
 }
 
 .search__input {
@@ -36,6 +37,10 @@
 
 .search__input:focus {
   outline: none;
+}
+
+.search__container:has(.search__input:focus) {
+  border-bottom: 1px solid #3456F3;
 }
 
 .search__button {

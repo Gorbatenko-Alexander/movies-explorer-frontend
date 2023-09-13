@@ -1,11 +1,22 @@
 import "./Register.css";
 
 import Page from "../Page/Page";
+import FormField from "../FormField/FormField";
 import logo from "../../images/logo.svg";
 import {useNavigate} from "react-router-dom";
+import React from "react";
 
 function Register () {
+  const [nameValue, setNameValue] = React.useState("");
+  const [emailValue, setEmailValue] = React.useState("");
+  const [passwordValue, setPasswordValue] = React.useState("");
+  const [isValid, setIsValid] = React.useState(false);
+
   const navigate = useNavigate();
+
+  const handleFormChange = (evt) => {
+    setIsValid(evt.target.closest("form").checkValidity());
+  }
 
   return (
     <Page>
@@ -14,24 +25,14 @@ function Register () {
              onClick={(evt) => {evt.preventDefault(); navigate('/');}}
         />
         <p className="register__title">Добро пожаловать!</p>
-        <form className="register__form">
-          <label className="register__field">
-            <span className="register__field-title">Имя</span>
-            <input type="text" name="name" defaultValue="Виталий" className="register__field-input" />
-            <span className="register__field-error"></span>
-          </label>
-          <label className="register__field">
-            <span className="register__field-title">E-mail</span>
-            <input type="text" name="email" defaultValue="pochta@yandex.ru"
-                   className="register__field-input register__field-input_bold" />
-            <span className="register__field-error"></span>
-          </label>
-          <label className="register__field">
-            <span className="register__field-title">Пароль</span>
-            <input type="password" name="password" defaultValue="12345678901234" className="register__field-input register__field-input_invalid" />
-            <span className="register__field-error">Что-то пошло не так...</span>
-          </label>
-          <button type="submit" className="register__button">Зарегистрироваться</button>
+        <form className="register__form" onChange={handleFormChange}>
+          <FormField value={nameValue} setValue={setNameValue} name={"name"}  type={"text"} title={"Имя"}
+                     required={true} min={2} max={40} />
+          <FormField value={emailValue} setValue={setEmailValue} name={"email"} type={"email"} title={"E-mail"}
+                     required={true} min={2} max={40} />
+          <FormField value={passwordValue} setValue={setPasswordValue} name={"password"} type={"password"} title={"Пароль"}
+                     required={true} min={2} max={40} />
+          <button type="submit" className={`register__button ${!isValid && "register__button_disabled"}`}>Зарегистрироваться</button>
         </form>
         <p className="register__info">
           Уже зарегистрированы?
