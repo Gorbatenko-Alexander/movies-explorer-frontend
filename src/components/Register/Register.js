@@ -25,11 +25,11 @@ function Register () {
              onClick={(evt) => {evt.preventDefault(); navigate('/');}}
         />
         <p className="register__title">Добро пожаловать!</p>
-        <form className="register__form" onChange={handleFormChange}>
+        <form className="register__form" onChange={handleFormChange} onInvalid={(evt) => {evt.preventDefault()}}>
           <FormField value={nameValue} setValue={setNameValue} name={"name"}  type={"text"} title={"Имя"}
                      required={true} min={2} max={40} />
           <FormField value={emailValue} setValue={setEmailValue} name={"email"} type={"email"} title={"E-mail"}
-                     required={true} min={2} max={40} />
+                     required={true} min={1} max={40} pattern={"[a-zA-Z0-9]{1,}[@][a-zA-Z0-9]{1,}[.][a-zA-Z0-9]{1,}"} />
           <FormField value={passwordValue} setValue={setPasswordValue} name={"password"} type={"password"} title={"Пароль"}
                      required={true} min={2} max={40} />
           <button type="submit" className={`register__button ${!isValid && "register__button_disabled"}`}>Зарегистрироваться</button>

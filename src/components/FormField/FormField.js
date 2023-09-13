@@ -8,14 +8,15 @@ function FormField (props) {
   const handleChange = (evt) => {
     setIsValid(evt.target.validity.valid);
     setErrorMessage(evt.target.validationMessage);
-    props.setValue(evt.target.value)
+    props.setValue(evt.target.value);
+    console.log(evt.target.validity);
   }
 
   return (
     <label className="form-field">
       <span className="form-field__title">{props.title}</span>
       <input value={props.value} name={props.name} type={props.type}
-             required={props.required} minLength={props.min} maxLength={props.max}
+             required={props.required} minLength={props.min} maxLength={props.max} pattern={props.pattern}
              className={`form-field__input ${!isValid && "form-field__input_invalid"}`}
              onChange={handleChange}
       />

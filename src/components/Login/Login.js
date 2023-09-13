@@ -24,9 +24,9 @@ function Login () {
              onClick={(evt) => {evt.preventDefault(); navigate('/');}}
         />
         <p className="login__title">Рады видеть!</p>
-        <form className="login__form" onChange={handleFormChange}>
+        <form className="login__form" onChange={handleFormChange} onInvalid={(evt) => {evt.preventDefault()}}>
           <FormField value={emailValue} setValue={setEmailValue} name={"email"} type={"email"} title={"E-mail"}
-                     required={true} min={2} max={40} />
+                     required={true} min={2} max={40} pattern={"[a-zA-Z0-9]{1,}[@][a-zA-Z0-9]{1,}[.][a-zA-Z0-9]{1,}"} />
           <FormField value={passwordValue} setValue={setPasswordValue} name={"password"} type={"password"} title={"Пароль"}
                      required={true} min={2} max={40} />
           <button type="submit" className={`login__button ${!isValid && "login__button_disabled"}`}>Войти</button>
