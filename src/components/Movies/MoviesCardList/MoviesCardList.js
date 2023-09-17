@@ -2,22 +2,21 @@ import "./MoviesCardList.css";
 
 import MoviesCard from "./MoviesCard/MoviesCard"
 
-function SearchForm (props) {
+function MoviesCardList (props) {
   return (
     <section aria-label="фильмы" className="movies-list">
       <ul className="movies-list__container">
-        {(props.size > 1100)
-          && props.cards.map((card, i) => (<MoviesCard card={card} key={i} />))}
-        {(props.size <= 1100) && (props.size > 740)
-          && props.cards.slice(0, 8).map((card, i) => (<MoviesCard card={card} key={i} />))}
-        {(props.size <= 740) && (props.cards.length > 5)
-          && props.cards.slice(0, 5).map((card, i) => (<MoviesCard card={card} key={i} />))}
-        {(props.size <= 740) && (props.cards.length <= 5)
-          && props.cards.slice(0, 2).map((card, i) => (<MoviesCard card={card} key={i} />))}
+        {props.movies.map((movie) => (
+          <MoviesCard movie={movie} key={movie.movieId} isSaved={props.isSaved}
+                      handleLike={props.handleLike} handleUnlike={props.handleUnlike}
+                      isLiked={!!props.savedMovies && !!props.savedMovies.find((m) => m.movieId === movie.movieId)}/>
+        ))}
       </ul>
-      <button className={`movies-list__more ${props.cards.length > 5 && "movies-list__more_active"}`}>Ещё</button>
+      <button className={`movies-list__more ${props.isMore && "movies-list__more_active"}`}
+              onClick={props.handleMore}
+      >Ещё</button>
     </section>
   );
 }
 
-export default SearchForm;
+export default MoviesCardList;

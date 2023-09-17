@@ -98,9 +98,10 @@
   background-color: rgba(52, 86, 243, 0.8);
 }
 
-.profile__edit-button_saving {
+.profile__submit-button_disabled {
   color: #C2C2C2;
   background-color: #F8F8F8;
+  pointer-events: none;
 }
 
 .profile__submit-button_inactive {

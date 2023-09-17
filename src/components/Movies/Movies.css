@@ -1,3 +1,14 @@
 .movies {
   width: 100%;
 }
+
+.movies__message {
+  max-width: 760px;
+  margin: auto;
+  padding: 50px 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #A0A0A0;
+}

@@ -1,7 +1,7 @@
-import "./FormField.css";
+import "./AuthFormField.css";
 import React from "react";
 
-function FormField (props) {
+function AuthFormField (props) {
   const [isValid, setIsValid] = React.useState(true);
   const [errorMessage, setErrorMessage] = React.useState(true);
 
@@ -9,7 +9,6 @@ function FormField (props) {
     setIsValid(evt.target.validity.valid);
     setErrorMessage(evt.target.validationMessage);
     props.setValue(evt.target.value);
-    console.log(evt.target.validity);
   }
 
   return (
@@ -25,4 +24,4 @@ function FormField (props) {
   );
 }
 
-export default FormField;
+export default AuthFormField;

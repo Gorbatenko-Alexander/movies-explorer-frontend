@@ -1,21 +1,23 @@
 import "./Register.css";
 
-import Page from "../Page/Page";
-import FormField from "../FormField/FormField";
-import logo from "../../images/logo.svg";
 import {useNavigate} from "react-router-dom";
 import React from "react";
 
-function Register () {
+import Page from "../Page/Page";
+import AuthForm from "../AuthForm/AuthForm";
+import AuthFormField from "../AuthForm/AuthFormField/AuthFormField";
+import logo from "../../images/logo.svg";
+import { EMAIL_VALIDATION_EXP } from "../../utils/constants";
+
+function Register (props) {
   const [nameValue, setNameValue] = React.useState("");
   const [emailValue, setEmailValue] = React.useState("");
   const [passwordValue, setPasswordValue] = React.useState("");
-  const [isValid, setIsValid] = React.useState(false);
 
   const navigate = useNavigate();
 
-  const handleFormChange = (evt) => {
-    setIsValid(evt.target.closest("form").checkValidity());
+  const handleSubmit = () => {
+    props.handleRegister(nameValue, passwordValue, emailValue);
   }
 
   return (
@@ -25,15 +27,14 @@ function Register () {
              onClick={(evt) => {evt.preventDefault(); navigate('/');}}
         />
         <p className="register__title">Добро пожаловать!</p>
-        <form className="register__form" onChange={handleFormChange} onInvalid={(evt) => {evt.preventDefault()}}>
-          <FormField value={nameValue} setValue={setNameValue} name={"name"}  type={"text"} title={"Имя"}
-                     required={true} min={2} max={40} />
-          <FormField value={emailValue} setValue={setEmailValue} name={"email"} type={"email"} title={"E-mail"}
-                     required={true} min={1} max={40} pattern={"[a-zA-Z0-9]{1,}[@][a-zA-Z0-9]{1,}[.][a-zA-Z0-9]{1,}"} />
-          <FormField value={passwordValue} setValue={setPasswordValue} name={"password"} type={"password"} title={"Пароль"}
-                     required={true} min={2} max={40} />
-          <button type="submit" className={`register__button ${!isValid && "register__button_disabled"}`}>Зарегистрироваться</button>
-        </form>
+        <AuthForm buttonText={"Зарегистрироваться"} handleSubmit={handleSubmit}>
+          <AuthFormField value={nameValue} setValue={setNameValue} name={"name"} type={"text"} title={"Имя"}
+                         required={true} min={2} max={40} />
+          <AuthFormField value={emailValue} setValue={setEmailValue} name={"email"} type={"text"} title={"E-mail"}
+                         required={true} min={1} max={40} pattern={EMAIL_VALIDATION_EXP} />
+          <AuthFormField value={passwordValue} setValue={setPasswordValue} name={"password"} type={"password"} title={"Пароль"}
+                         required={true} min={2} max={40} />
+        </AuthForm>
         <p className="register__info">
           Уже зарегистрированы?
           <a href="/signin" className="register__info-link"

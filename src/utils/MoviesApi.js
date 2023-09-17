@@ -21,11 +21,17 @@ class MoviesApi {
     return Promise.resolve(
       res.map((card) => {
         return {
-          img: `${this._baseUrl}${card.image.url}`,
-          title: card.nameRU,
+          country: card.country,
+          director: card.director,
           duration: card.duration,
-          liked: true,
-          saved: false,
+          year: card.year,
+          description: card.description,
+          image: `${this._baseUrl}${card.image.url}`,
+          trailerLink: card.trailerLink,
+          thumbnail: `${this._baseUrl}${card.image.formats.thumbnail.url}`,
+          movieId: card.id,
+          nameRU: card.nameRU,
+          nameEN: card.nameEN,
         }
       })
     )
