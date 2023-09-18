@@ -67,11 +67,9 @@ function App() {
   const handleRegister = (name, password, email, setIsDisabled) => {
     auth.register(name, password, email)
       .then(() => {
-        return handleLogin(password, email);
+        return handleLogin(password, email, setIsDisabled);
       })
       .then(() => {
-        setIsDisabled(false);
-        navigate('/movies');
         setInfoText('Успешная регистрация');
       })
       .catch((err) => {
