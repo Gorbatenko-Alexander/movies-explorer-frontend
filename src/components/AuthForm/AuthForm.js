@@ -24,8 +24,8 @@ function AuthForm (props) {
     <form className="auth-form" onChange={handleFormChange} onInvalid={handleFormInvalid} onSubmit={handleFormSubmit}>
       <fieldset className={"auth-form__fields"} disabled={isDisabled}>
         {props.children}
-        <button type="submit" className={`auth-form__button ${(!isValid || isDisabled) && "auth-form__button_disabled"}`}>{props.buttonText}</button>
       </fieldset>
+      <button type="submit" className={`auth-form__button ${(!isValid || isDisabled) && "auth-form__button_disabled"}`}>{props.buttonText}</button>
     </form>
   );
 }

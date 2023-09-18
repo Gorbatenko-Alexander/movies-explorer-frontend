@@ -112,6 +112,11 @@
   background-color: #F8F8F8;
   pointer-events: none;
 }
+.profile__submit-button_disabled:hover {
+  color: #C2C2C2;
+  background-color: #F8F8F8;
+  pointer-events: none;
+}
 
 .profile__submit-button_inactive {
   display: none;

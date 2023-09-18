@@ -2,10 +2,11 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  min-height: 396px;
+  flex-grow: 1;
 }
 
 .auth-form__fields {
-  min-height: 396px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -27,15 +28,21 @@
   transition: 0.2s;
 }
 
+.auth-form__button:hover {
+  cursor: pointer;
+  background-color: rgba(52, 86, 243, 0.8);
+}
+
 .auth-form__button_disabled {
   pointer-events: none;
   background-color: #F8F8F8;
   color: #C2C2C2;
 }
 
-.auth-form__button:hover {
-  cursor: pointer;
-  background-color: rgba(52, 86, 243, 0.8);
+.auth-form__button_disabled:hover {
+  pointer-events: none;
+  background-color: #F8F8F8;
+  color: #C2C2C2;
 }
 
 @media screen and (max-width: 740px) {
