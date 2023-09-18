@@ -12,7 +12,9 @@ function SearchForm (props) {
   const [isShort, setIsShort] = React.useState(
     !props.isSaved ? !!JSON.parse(localStorage.getItem('searchIsShort')) : false);
   const [lastSearchValue, setLastSearchValue] = React.useState(
-  !props.isSaved ? (localStorage.getItem('searchValue') || '') : '');
+    !props.isSaved ? (localStorage.getItem('searchValue') || '') : '');
+  const [isShortFilterActive, setIsShortFilterActive] = React.useState(
+    props.isSaved || (localStorage.getItem('searchValue') && (localStorage.getItem('searchValue') !== '')));
 
   const handleChangeValue = (evt) => {
     setIsError(false);
@@ -22,7 +24,7 @@ function SearchForm (props) {
   }
 
   const handleChangeIsShort = () => {
-    if (lastSearchValue !== '') props.handleSearch(lastSearchValue, !isShort);
+    if (isShortFilterActive) props.handleSearch(lastSearchValue, !isShort);
     if (!props.isSaved) localStorage.setItem('searchIsShort', JSON.stringify(!isShort));
     setIsShort(!isShort);
   }
@@ -32,6 +34,7 @@ function SearchForm (props) {
     if (isValid) {
       props.handleSearch(value, isShort);
       setLastSearchValue(value);
+      setIsShortFilterActive(value !== '');
     } else setIsError(true);
   }
 
