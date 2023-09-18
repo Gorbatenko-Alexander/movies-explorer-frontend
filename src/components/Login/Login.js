@@ -15,8 +15,8 @@ function Login (props) {
 
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    props.handleLogin(passwordValue, emailValue);
+  const handleSubmit = (setIsDisabled) => {
+    props.handleLogin(passwordValue, emailValue, setIsDisabled);
   }
 
   return (

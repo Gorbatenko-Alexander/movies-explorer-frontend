@@ -13,6 +13,7 @@ function Profile (props) {
   const [name, setName] = React.useState(currentUser.name);
   const [email, setEmail] = React.useState(currentUser.email);
   const [isValid, setIsValid] = React.useState(false);
+  const [isDisabled, setIsDisabled] = React.useState(false);
 
   const navigate = useNavigate();
 
@@ -23,12 +24,18 @@ function Profile (props) {
 
   const handleEdit = (evt) => {
     evt.preventDefault();
-    if (isValid) props.handleEdit({name, email})
-      .then(() => {
-        setStatus('');
-      })
-      .catch(() => {setStatus('editing error')})
-    else setStatus('editing invalid')
+    if (isValid) {
+      setIsDisabled(true);
+      props.handleEdit({name, email})
+        .then(() => {
+          setIsDisabled(false);
+          setStatus('');
+        })
+        .catch(() => {
+          setIsDisabled(false);
+          setStatus('editing error');
+        })
+    } else setStatus('editing invalid');
   }
 
   const handleChange = (evt) => {
@@ -42,16 +49,18 @@ function Profile (props) {
       <main className="profile">
         <p className="profile__title">Привет, {currentUser.name}!</p>
         <form className="profile__form" onChange={handleChange} onSubmit={handleEdit} noValidate={true}>
-          <label className="profile__field">
-            <span className="profile__field-title">Имя</span>
-            <input type="text" name="name" defaultValue={currentUser.name} onChange={(evt) => {setName(evt.target.value)}}
-                   readOnly={!status.includes('editing')} className="profile__field-input" minLength={2} maxLength={30}/>
-          </label>
-          <label className="profile__field">
-            <span className="profile__field-title">E-mail</span>
-            <input type="text" name="email" defaultValue={currentUser.email} onChange={(evt) => {setEmail(evt.target.value)}}
-                   readOnly={!status.includes('editing')} className="profile__field-input" pattern={EMAIL_VALIDATION_EXP} />
-          </label>
+          <fieldset className="profile__fields" disabled={isDisabled}>
+            <label className="profile__field">
+              <span className="profile__field-title">Имя</span>
+              <input type="text" name="name" defaultValue={currentUser.name} onChange={(evt) => {setName(evt.target.value)}}
+                     readOnly={!status.includes('editing')} className="profile__field-input" minLength={2} maxLength={30}/>
+            </label>
+            <label className="profile__field">
+              <span className="profile__field-title">E-mail</span>
+              <input type="text" name="email" defaultValue={currentUser.email} onChange={(evt) => {setEmail(evt.target.value)}}
+                     readOnly={!status.includes('editing')} className="profile__field-input" pattern={EMAIL_VALIDATION_EXP} />
+            </label>
+          </fieldset>
           <p className={`profile__error ${!status.includes('editing') && "profile__error_inactive"}`}>
             {status.includes('error') && "При обновлении профиля произошла ошибка"}
             {status.includes('invalid') && "Введите корректные данные"}
@@ -59,7 +68,7 @@ function Profile (props) {
           <button type="submit"
                   className={`profile__submit-button
                   ${!status.includes('editing') && "profile__submit-button_inactive"}
-                  ${(currentUser.name === name) && (currentUser.email === email) && "profile__submit-button_disabled"}`}
+                  ${(((currentUser.name === name) && (currentUser.email === email)) || isDisabled) && "profile__submit-button_disabled"}`}
           >Сохранить</button>
           <button className={`profile__cancel-button ${!status.includes('editing') && "profile__cancel-button_inactive"}`}
                   onClick={(evt) => {evt.preventDefault(); setStatus(''); setName(currentUser.name); setEmail(currentUser.email);}}

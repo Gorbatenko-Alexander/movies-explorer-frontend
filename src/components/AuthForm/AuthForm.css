@@ -4,8 +4,18 @@
   flex-direction: column;
 }
 
+.auth-form__fields {
+  min-height: 396px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
 .auth-form__button {
-  margin: 197px 0 16px;
+  margin: auto 0 16px;
   padding: 13px 0 15px;
   font-size: 14px;
   font-weight: 500;

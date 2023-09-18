@@ -28,7 +28,7 @@ function App() {
     if (!jwt) {
       mainApi.headers.authorization = '';
       setCurrentUser({});
-      return;
+      return Promise.resolve();
     }
     return auth.checkToken(jwt)
       .then((res) => {
@@ -48,30 +48,34 @@ function App() {
       });
   }
 
-  const handleLogin = (password, email) => {
+  const handleLogin = (password, email, setIsDisabled) => {
     return auth.login(password, email)
       .then((res) => {
         localStorage.setItem('jwt', res.token);
         return authenticate()
           .then(() => {
+            setIsDisabled(false);
             navigate('/movies');
           })
       })
       .catch((err) => {
+        setIsDisabled(false);
         setInfoText(err);
       });
   }
 
-  const handleRegister = (name, password, email) => {
+  const handleRegister = (name, password, email, setIsDisabled) => {
     auth.register(name, password, email)
       .then(() => {
         return handleLogin(password, email);
       })
       .then(() => {
+        setIsDisabled(false);
         navigate('/movies');
         setInfoText('Успешная регистрация');
       })
       .catch((err) => {
+        setIsDisabled(false);
         setInfoText(err);
       });
   }
@@ -110,7 +114,7 @@ function App() {
   }
 
   const handleLogout = () => {
-    localStorage.removeItem('jwt');
+    localStorage.clear();
     authenticate()
       .catch((err) => {
         setInfoText(err);

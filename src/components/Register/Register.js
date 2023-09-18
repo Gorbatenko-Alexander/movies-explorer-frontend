@@ -16,8 +16,8 @@ function Register (props) {
 
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    props.handleRegister(nameValue, passwordValue, emailValue);
+  const handleSubmit = (setIsDisabled) => {
+    props.handleRegister(nameValue, passwordValue, emailValue, setIsDisabled);
   }
 
   return (
