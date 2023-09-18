@@ -11,7 +11,8 @@ function SearchForm (props) {
     !props.isSaved ? (localStorage.getItem('searchValue') || '') : '');
   const [isShort, setIsShort] = React.useState(
     !props.isSaved ? !!JSON.parse(localStorage.getItem('searchIsShort')) : false);
-  const [lastSearchValue, setLastSearchValue] = React.useState('');
+  const [lastSearchValue, setLastSearchValue] = React.useState(
+  !props.isSaved ? (localStorage.getItem('searchValue') || '') : '');
 
   const handleChangeValue = (evt) => {
     setIsError(false);

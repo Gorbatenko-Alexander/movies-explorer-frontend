@@ -29,11 +29,11 @@ function Register (props) {
         <p className="register__title">Добро пожаловать!</p>
         <AuthForm buttonText={"Зарегистрироваться"} handleSubmit={handleSubmit}>
           <AuthFormField value={nameValue} setValue={setNameValue} name={"name"} type={"text"} title={"Имя"}
-                         required={true} min={2} max={40} />
+                         required={true} min={2} max={30} />
           <AuthFormField value={emailValue} setValue={setEmailValue} name={"email"} type={"text"} title={"E-mail"}
-                         required={true} min={1} max={40} pattern={EMAIL_VALIDATION_EXP} />
+                         required={true} pattern={EMAIL_VALIDATION_EXP} />
           <AuthFormField value={passwordValue} setValue={setPasswordValue} name={"password"} type={"password"} title={"Пароль"}
-                         required={true} min={2} max={40} />
+                         required={true} min={8} />
         </AuthForm>
         <p className="register__info">
           Уже зарегистрированы?

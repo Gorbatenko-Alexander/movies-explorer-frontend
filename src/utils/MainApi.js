@@ -12,7 +12,7 @@ class MainApi {
     } else {
       return res.json()
         .then((result) => {
-          return Promise.reject(`Ошибка ${res.status}: ${result.message}`);
+          return Promise.reject(`${result.message}`);
         });
     }
   }

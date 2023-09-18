@@ -28,9 +28,9 @@ function Login (props) {
         <p className="login__title">Рады видеть!</p>
         <AuthForm buttonText={"Войти"} handleSubmit={handleSubmit}>
           <AuthFormField value={emailValue} setValue={setEmailValue} name={"email"} type={"email"} title={"E-mail"}
-                         required={true} min={2} max={40} pattern={EMAIL_VALIDATION_EXP} />
+                         required={true} pattern={EMAIL_VALIDATION_EXP} />
           <AuthFormField value={passwordValue} setValue={setPasswordValue} name={"password"} type={"password"} title={"Пароль"}
-                         required={true} min={2} max={40} />
+                         required={true} min={8} />
         </AuthForm>
         <p className="login__info">
           Ещё не зарегистрированы?

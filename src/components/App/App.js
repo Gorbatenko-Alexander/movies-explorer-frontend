@@ -49,7 +49,7 @@ function App() {
   }
 
   const handleLogin = (password, email) => {
-    auth.login(password, email)
+    return auth.login(password, email)
       .then((res) => {
         localStorage.setItem('jwt', res.token);
         return authenticate()
@@ -65,7 +65,10 @@ function App() {
   const handleRegister = (name, password, email) => {
     auth.register(name, password, email)
       .then(() => {
-        navigate('/signin');
+        return handleLogin(password, email);
+      })
+      .then(() => {
+        navigate('/movies');
         setInfoText('Успешная регистрация');
       })
       .catch((err) => {
@@ -77,7 +80,11 @@ function App() {
     return mainApi.changeUserInfo(userInfo)
       .then((res) => {
         setCurrentUser({loggedIn: true, ...res});
+        setInfoText('Данные успешно изменены');
       })
+      .catch((err) => {
+        setInfoText(err);
+      });
   }
 
   const handleLike = (movie) => {
@@ -104,12 +111,23 @@ function App() {
 
   const handleLogout = () => {
     localStorage.removeItem('jwt');
-    authenticate();
+    authenticate()
+      .catch((err) => {
+        setInfoText(err);
+      });
   }
 
   React.useEffect(() => {
-    authenticate();
+    authenticate()
+      .catch((err) => {
+        setInfoText(err);
+      });
   }, []);
+
+  React.useEffect(() => {
+    if (infoText === '') document.body.style.overflow = ""
+    else document.body.style.overflow = "hidden";
+  }, [infoText]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
