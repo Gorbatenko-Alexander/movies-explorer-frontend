@@ -3,7 +3,7 @@ import "./MoviesCard.css";
 function MoviesCard (props) {
   return (
     <li className="movies-card">
-      <img src={props.movie.thumbnail} alt={props.movie.nameRU} className="movies-card__picture"
+      <img src={props.movie.image} alt={props.movie.nameRU} className="movies-card__picture"
            onClick={() => {window.open(props.movie.trailerLink, '_blank');}} />
       <p className="movies-card__title">{props.movie.nameRU}</p>
       <button

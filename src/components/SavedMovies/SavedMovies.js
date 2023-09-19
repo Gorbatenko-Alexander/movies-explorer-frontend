@@ -4,7 +4,7 @@ import Movies from "../Movies/Movies";
 
 function SavedMovies (props) {
   const [status, setStatus] = React.useState('films_shown');
-  const [moviesShown, setMoviesShown] = React.useState(props.savedMovies);
+  const [moviesShown, setMoviesShown] = React.useState([]);
 
   const handleSearch = (value, isShort) => {
     const moviesFiltered = props.savedMovies.filter((movie) => {

@@ -1,6 +1,6 @@
 import "./Register.css";
 
-import {useNavigate} from "react-router-dom";
+import {Navigate, useNavigate} from "react-router-dom";
 import React from "react";
 
 import Page from "../Page/Page";
@@ -8,19 +8,20 @@ import AuthForm from "../AuthForm/AuthForm";
 import AuthFormField from "../AuthForm/AuthFormField/AuthFormField";
 import logo from "../../images/logo.svg";
 import { EMAIL_VALIDATION_EXP } from "../../utils/constants";
+import {CurrentUserContext} from "../../contexts/CurrentUserContext";
 
 function Register (props) {
   const [nameValue, setNameValue] = React.useState("");
   const [emailValue, setEmailValue] = React.useState("");
   const [passwordValue, setPasswordValue] = React.useState("");
-
+  const currentUser = React.useContext(CurrentUserContext);
   const navigate = useNavigate();
 
   const handleSubmit = (setIsDisabled) => {
     props.handleRegister(nameValue, passwordValue, emailValue, setIsDisabled);
   }
 
-  return (
+  return currentUser.loggedIn ? (<Navigate to="/movies" replace/>) : (
     <Page>
       <main className="register">
         <img src={logo} alt="лого" className="register__logo"
