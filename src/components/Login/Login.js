@@ -1,11 +1,23 @@
 import "./Login.css";
 
+import {useNavigate} from "react-router-dom";
+import React from "react";
+
 import Page from "../Page/Page";
 import logo from "../../images/logo.svg";
-import {useNavigate} from "react-router-dom";
+import { EMAIL_VALIDATION_EXP } from "../../utils/constants";
+import AuthForm from "../AuthForm/AuthForm";
+import AuthFormField from "../AuthForm/AuthFormField/AuthFormField";
 
-function Login () {
+function Login (props) {
+  const [emailValue, setEmailValue] = React.useState("");
+  const [passwordValue, setPasswordValue] = React.useState("");
+
   const navigate = useNavigate();
+
+  const handleSubmit = (setIsDisabled) => {
+    props.handleLogin(passwordValue, emailValue, setIsDisabled);
+  }
 
   return (
     <Page>
@@ -14,20 +26,12 @@ function Login () {
              onClick={(evt) => {evt.preventDefault(); navigate('/');}}
         />
         <p className="login__title">Рады видеть!</p>
-        <form className="login__form">
-          <label className="login__field">
-            <span className="login__field-title">E-mail</span>
-            <input type="text" name="email" defaultValue="pochta@yandex.ru"
-                   className="login__field-input login__field-input_bold" />
-            <span className="login__field-error"></span>
-          </label>
-          <label className="login__field">
-            <span className="login__field-title">Пароль</span>
-            <input type="password" name="password" className="login__field-input" />
-            <span className="login__field-error"></span>
-          </label>
-          <button type="submit" className="login__button">Войти</button>
-        </form>
+        <AuthForm buttonText={"Войти"} handleSubmit={handleSubmit}>
+          <AuthFormField value={emailValue} setValue={setEmailValue} name={"email"} type={"email"} title={"E-mail"}
+                         required={true} pattern={EMAIL_VALIDATION_EXP} />
+          <AuthFormField value={passwordValue} setValue={setPasswordValue} name={"password"} type={"password"} title={"Пароль"}
+                         required={true} min={8} />
+        </AuthForm>
         <p className="login__info">
           Ещё не зарегистрированы?
           <a href="/signup" className="login__info-link"

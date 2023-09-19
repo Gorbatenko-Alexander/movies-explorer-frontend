@@ -1,4 +1,6 @@
-Макет: https://www.figma.com/file/6FMWkB94wE7KTkcCgUXtnC/light-1
+Макет: https://www.figma.com/file/6FMWkB94wE7KTkcCgUXtnC/light-1 \
+Адрес: https://moviediploma.nomoredomainsicu.ru/ \
+Пулл-реквест: https://github.com/Gorbatenko-Alexander/movies-explorer-frontend/pull/2
 
 ---
 # Getting Started with Create React App

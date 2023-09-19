@@ -16,6 +16,8 @@
   margin: 0 0 32px;
   padding: 0 0 13px;
   border-bottom: solid 1px #E8E8E8;
+  transition: 0.2s;
+  position: relative;
 }
 
 .search__input {
@@ -53,6 +55,29 @@
 .search__button:hover {
   cursor: pointer;
   background-color: rgba(52, 86, 243, 0.8);
+}
+
+.search__button_disabled {
+  background-color: #F8F8F8;
+  color: #C2C2C2;
+  pointer-events: none;
+}
+
+.search__error {
+  margin:0;
+  padding:0;
+  position: absolute;
+  opacity: 0;
+  bottom: -20px;
+  left: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 14px;
+  color: #A0A0A0;
+}
+
+.search__error_shown {
+  opacity: 100%;
 }
 
 @media screen and (max-width: 1100px) {

@@ -3,11 +3,12 @@ import React from "react";
 import logo from "../../images/logo.svg";
 import accountIcon from "../../images/icon-account.svg"
 import {useNavigate} from "react-router-dom";
-
 import Navigation from "../Navigation/Navigation";
+import {CurrentUserContext} from "../../contexts/CurrentUserContext";
 
 function Header(props) {
   const [isNavigationOpened, setIsNavigationOpened] = React.useState(false);
+  const currentUser = React.useContext(CurrentUserContext);
 
   const navigate = useNavigate();
 
@@ -20,7 +21,7 @@ function Header(props) {
 
       {/* Авторизованный пользователь */}
 
-      {props.isLoggedIn && (
+      {currentUser.loggedIn && (
         <nav className="header__nav-bar">
           <a href='/movies'
              className={`header__link
@@ -38,14 +39,14 @@ function Header(props) {
         </nav>
       )}
 
-      {props.isLoggedIn && (
+      {currentUser.loggedIn && (
         <button
           className={`header__button ${props.isLight && "header__button_light"}`}
           onClick={(evt) => {evt.preventDefault(); navigate('/profile');}}
         >Аккаунт <img src={accountIcon} alt="аккаунт" className='header__account-icon' /></button>
       )}
 
-      {props.isLoggedIn && (
+      {currentUser.loggedIn && (
         <button
           className={`header__menu-button ${props.isLight && "header__menu-button_light"}`}
           onClick={(evt) => {
@@ -58,7 +59,7 @@ function Header(props) {
 
       {/* Неавторизованный пользователь */}
 
-      {!props.isLoggedIn && (
+      {!currentUser.loggedIn && (
         <a href='/signup'
            className={`header__link header__link_notAuth
            ${props.isLight && "header__link_light"}
@@ -66,7 +67,7 @@ function Header(props) {
            onClick={(evt) => {evt.preventDefault(); navigate('/signup');}}
         >Регистрация</a>)}
 
-      {!props.isLoggedIn && (
+      {!currentUser.loggedIn && (
         <button
           className={`header__button header__button_notAuth
           ${props.isLight && "header__button_light"}`}
