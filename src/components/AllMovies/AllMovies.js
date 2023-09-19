@@ -36,7 +36,7 @@ function AllMovies (props) {
     }
   }
 
-  const handleMore = () => {      // Если после увеличения разрешения строка не заполнена - она сперва заполняется, а затем добавляется новая
+  const handleMore = () => {
     const rows = handleResize();
     const currentRows = moviesShown.length / rows.moviesPerRow | 0;
     setMoviesShown(moviesFiltered.slice(0, rows.moviesPerRow * (currentRows + rows.rowsPerClick)));
@@ -58,7 +58,7 @@ function AllMovies (props) {
   return (
     <Movies moviesList={moviesShown} handleSearch={handleSearch} isSaved={false} status={status}
             isMore={moviesShown.length < moviesFiltered.length} handleLike={props.handleLike}
-            handleUnlike={props.handleUnlike} handleMore={handleMore} savedMovies={props.savedMovies}/>
+            handleUnlike={props.handleUnlike} handleMore={handleMore} savedMovies={props.savedMovies} />
   );
 }
 

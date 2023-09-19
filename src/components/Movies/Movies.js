@@ -13,7 +13,7 @@ function Movies (props) {
     <Page>
       <Header isLoggedIn={true} isLight={true} />
       <main className="movies">
-        <SearchForm handleSearch={props.handleSearch} isSaved={props.isSaved} />
+        <SearchForm handleSearch={props.handleSearch} isSaved={props.isSaved} savedMovies={props.savedMovies} />
         {props.status === 'loading' && (<Preloader />)}
         {props.status === 'nothing_found' && (<p className="movies__message">Ничего не найдено</p>)}
         {props.status === 'error' && (<p className="movies__message">Во время запроса произошла ошибка.

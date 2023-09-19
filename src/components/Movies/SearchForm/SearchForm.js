@@ -18,19 +18,19 @@ function SearchForm (props) {
 
   const handleChangeIsShort = () => {
     if (!props.isSaved) localStorage.setItem('searchIsShort', JSON.stringify(!isShort));
+    props.handleSearch(lastSearchValue, !isShort);
     setIsShort(!isShort);
   }
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    props.handleSearch(value, isShort);
     setLastSearchValue(value);
   }
 
-  const handleSearch = props.handleSearch;
-
   React.useEffect(() => {
-    handleSearch(lastSearchValue, isShort);
-  }, [lastSearchValue, isShort, handleSearch]);
+    if ((props.savedMovies.length > 0) && props.isSaved) props.handleSearch(lastSearchValue, isShort);
+  }, [props.savedMovies]);
 
   return (
     <section aria-label="поиск" className="search">

@@ -140,13 +140,12 @@ function App() {
           <Route path='/signup' element={<Register handleRegister={handleRegister} />} />
           <Route path='/movies' element={
             <ProtectedRoute isLoggedIn={currentUser.loggedIn}>
-              <AllMovies handleLike={handleLike} handleUnlike={handleUnlike} savedMovies={savedMovies}
-                         setSavedMovies={setSavedMovies} />
+              <AllMovies handleLike={handleLike} handleUnlike={handleUnlike} savedMovies={savedMovies} />
             </ProtectedRoute>
           } />
           <Route path='/saved-movies' element={
             <ProtectedRoute isLoggedIn={currentUser.loggedIn}>
-              <SavedMovies handleUnlike={handleUnlike} savedMovies={savedMovies} setSavedMovies={setSavedMovies} />
+              <SavedMovies handleUnlike={handleUnlike} savedMovies={savedMovies} />
             </ProtectedRoute>
           } />
           <Route path='/profile' element={

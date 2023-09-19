@@ -16,12 +16,8 @@ function SavedMovies (props) {
     else setStatus('nothing_found');
   }
 
-  React.useEffect(() => {
-    setMoviesShown(props.savedMovies);
-  }, [props.savedMovies]);
-
   return (
-    <Movies moviesList={moviesShown} size={props.size} isMore={false} handleSearch={handleSearch}
+    <Movies savedMovies={props.savedMovies} moviesList={moviesShown} isMore={false} handleSearch={handleSearch}
             isSaved={true} handleUnlike={props.handleUnlike} status={status} />
   );
 }
