@@ -8,7 +8,7 @@ function Footer () {
       <p className="footer__copyright"><span className="footer__copyright-symbol">©</span>2020</p>
       <p className="footer__links">
         <a className="footer__link" href="http://practicum.yandex.ru" target="_blank" rel="noreferrer">Яндекс.Практикум</a>
-        <a className="footer__link" href="http://github.com" target="_blank" rel="noreferrer">Github</a>
+        <a className="footer__link" href="https://github.com/Gorbatenko-Alexander" target="_blank" rel="noreferrer">Github</a>
       </p>
     </footer>
   );

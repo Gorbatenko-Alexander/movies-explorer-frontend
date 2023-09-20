@@ -4,17 +4,16 @@ import Movies from "../Movies/Movies";
 import {moviesApi} from "../../utils/MoviesApi";
 
 function AllMovies (props) {
-  const [allMovies, setAllMovies] = React.useState(JSON.parse(localStorage.getItem('allMovies')) || []);
+  const [allMovies, setAllMovies] = React.useState([]);
   const [moviesFiltered, setMoviesFiltered] = React.useState(JSON.parse(localStorage.getItem('moviesFiltered')) || []);
   const [moviesShown, setMoviesShown] = React.useState([]);
   const [status, setStatus] = React.useState('films_shown');
 
   const handleSearch = (value, isShort) => {
-    if (!localStorage.getItem('allMovies')) {
+    if (allMovies.length === 0) {
       setStatus('loading');
       moviesApi.getMovies()
         .then((res) => {
-          localStorage.setItem('allMovies', JSON.stringify(res));
           setAllMovies(res);
           const moviesFiltered = res.filter((movie) => {
             return (movie.nameRU.toLowerCase().includes(value.toLowerCase())
@@ -56,9 +55,16 @@ function AllMovies (props) {
   }, [moviesFiltered]);
 
   return (
-    <Movies moviesList={moviesShown} handleSearch={handleSearch} isSaved={false} status={status}
-            isMore={moviesShown.length < moviesFiltered.length} handleLike={props.handleLike}
-            handleUnlike={props.handleUnlike} handleMore={handleMore} savedMovies={props.savedMovies} />
+    <Movies moviesList={moviesShown}
+            handleSearch={handleSearch}
+            isSaved={false}
+            status={status}
+            isMore={moviesShown.length < moviesFiltered.length}
+            handleLike={props.handleLike}
+            handleUnlike={props.handleUnlike}
+            handleMore={handleMore}
+            savedMovies={props.savedMovies}
+    />
   );
 }
 

@@ -65,6 +65,10 @@
   background: none;
 }
 
+.profile__field-input:disabled {
+  color: black;
+}
+
 .profile__field-input:focus {
   outline: none;
 }

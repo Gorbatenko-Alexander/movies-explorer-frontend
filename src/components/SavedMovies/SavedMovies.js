@@ -17,8 +17,14 @@ function SavedMovies (props) {
   }
 
   return (
-    <Movies savedMovies={props.savedMovies} moviesList={moviesShown} isMore={false} handleSearch={handleSearch}
-            isSaved={true} handleUnlike={props.handleUnlike} status={status} />
+    <Movies savedMovies={props.savedMovies}
+            moviesList={moviesShown}
+            isMore={false}
+            handleSearch={handleSearch}
+            isSaved={true}
+            handleUnlike={props.handleUnlike}
+            status={status}
+    />
   );
 }
 
