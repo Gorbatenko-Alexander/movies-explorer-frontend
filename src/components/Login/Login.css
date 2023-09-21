@@ -44,7 +44,7 @@
 }
 
 .login__info-link:hover {
-  opacity: 70%;
+  opacity: 60%;
 }
 
 @media screen and (max-width: 740px) {

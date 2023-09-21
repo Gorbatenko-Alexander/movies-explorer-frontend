@@ -44,7 +44,7 @@
 }
 
 .header__link:hover {
-  opacity: 70%;
+  opacity: 60%;
 }
 
 .header__link_notAuth {
@@ -104,7 +104,7 @@
 
 .header__button_light:hover {
   background-color: white;
-  opacity: 70%;
+  opacity: 60%;
 }
 
 .header__account-icon {
