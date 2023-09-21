@@ -41,7 +41,7 @@ function AllMovies (props) {
     setMoviesShown(moviesFiltered.slice(0, rows.moviesPerRow * (currentRows + rows.rowsPerClick)));
     setTimeout(() => {
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }, 100);
+    }, 20);
   }
 
   const handleResize = () => {
