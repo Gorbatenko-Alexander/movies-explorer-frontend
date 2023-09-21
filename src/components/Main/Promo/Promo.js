@@ -8,7 +8,7 @@ function Techs () {
       <h1 className="promo__title">Учебный проект студента факультета <nobr>Веб-разработки</nobr>.</h1>
       <p className="promo__description">Листайте ниже, чтобы узнать больше про этот проект и его создателя.</p>
       <button className="promo__button"
-              onClick={(evt) => {evt.preventDefault(); window.open('#about', '_self');}}
+              onClick={() => {window.scrollTo({ top: 648, behavior: 'smooth' });}}
       >Узнать больше</button>
     </section>
   );
