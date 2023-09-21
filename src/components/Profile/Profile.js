@@ -5,7 +5,7 @@ import Header from "../Header/Header";
 import {useNavigate} from "react-router-dom";
 import React from "react";
 import {CurrentUserContext} from "../../contexts/CurrentUserContext";
-import {EMAIL_VALIDATION_EXP} from "../../utils/constants";
+import {EMAIL_VALIDATION_EXP, NAME_VALIDATION_EXP} from "../../utils/constants";
 
 function Profile (props) {
   const currentUser = React.useContext(CurrentUserContext);
@@ -61,14 +61,16 @@ function Profile (props) {
               <input type="text" name="name" value={name}
                      onChange={(evt) => {setName(evt.target.value)}}
                      readOnly={!status.includes('editing')}
-                     className="profile__field-input" minLength={2} maxLength={30}/>
+                     className="profile__field-input"
+                     required={true} minLength={2} maxLength={30} pattern={NAME_VALIDATION_EXP} />
             </label>
             <label className="profile__field">
               <span className="profile__field-title">E-mail</span>
               <input type="text" name="email" value={email}
                      onChange={(evt) => {setEmail(evt.target.value)}}
                      readOnly={!status.includes('editing')}
-                     className="profile__field-input" pattern={EMAIL_VALIDATION_EXP} />
+                     className="profile__field-input"
+                     required={true} pattern={EMAIL_VALIDATION_EXP} />
             </label>
           </fieldset>
           <p className={`profile__error ${!status.includes('editing') && "profile__error_inactive"}`}>

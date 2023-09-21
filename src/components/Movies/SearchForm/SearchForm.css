@@ -20,6 +20,10 @@
   position: relative;
 }
 
+.search__container:focus-within {
+  border-bottom: solid 1px #3456F3;
+}
+
 .search__input {
   flex-grow: 1;
   width: 1em;

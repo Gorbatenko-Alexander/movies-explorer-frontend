@@ -103,7 +103,8 @@
 }
 
 .header__button_light:hover {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: white;
+  opacity: 70%;
 }
 
 .header__account-icon {
