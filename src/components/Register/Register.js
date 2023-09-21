@@ -7,7 +7,7 @@ import Page from "../Page/Page";
 import AuthForm from "../AuthForm/AuthForm";
 import AuthFormField from "../AuthForm/AuthFormField/AuthFormField";
 import logo from "../../images/logo.svg";
-import { EMAIL_VALIDATION_EXP } from "../../utils/constants";
+import { EMAIL_VALIDATION_EXP, NAME_VALIDATION_EXP } from "../../utils/constants";
 import {CurrentUserContext} from "../../contexts/CurrentUserContext";
 
 function Register (props) {
@@ -30,7 +30,7 @@ function Register (props) {
         <p className="register__title">Добро пожаловать!</p>
         <AuthForm buttonText={"Зарегистрироваться"} handleSubmit={handleSubmit}>
           <AuthFormField value={nameValue} setValue={setNameValue} name={"name"} type={"text"} title={"Имя"}
-                         required={true} min={2} max={30} />
+                         required={true} min={2} max={30} pattern={NAME_VALIDATION_EXP} />
           <AuthFormField value={emailValue} setValue={setEmailValue} name={"email"} type={"text"} title={"E-mail"}
                          required={true} pattern={EMAIL_VALIDATION_EXP} />
           <AuthFormField value={passwordValue} setValue={setPasswordValue} name={"password"} type={"password"} title={"Пароль"}
