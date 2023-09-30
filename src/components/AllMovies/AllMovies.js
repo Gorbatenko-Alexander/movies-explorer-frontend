@@ -57,6 +57,10 @@ function AllMovies (props) {
     localStorage.setItem('moviesFiltered', JSON.stringify(moviesFiltered));
   }, [moviesFiltered]);
 
+  React.useEffect(() => {
+    handleSearch('', false);
+  }, []);
+
   return (
     <Movies moviesList={moviesShown}
             handleSearch={handleSearch}

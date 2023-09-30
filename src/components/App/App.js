@@ -43,7 +43,7 @@ function App() {
       })
       .catch((err) => {
         setInfoText(err);
-        localStorage.removeItem('jwt');
+        localStorage.clear();
         setCurrentUser({});
       });
   }

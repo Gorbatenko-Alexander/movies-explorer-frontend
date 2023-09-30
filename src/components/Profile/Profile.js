@@ -60,17 +60,17 @@ function Profile (props) {
               <span className="profile__field-title">Имя</span>
               <input type="text" name="name" value={name}
                      onChange={(evt) => {setName(evt.target.value)}}
-                     readOnly={!status.includes('editing')}
                      className="profile__field-input"
-                     required={true} minLength={2} maxLength={30} pattern={NAME_VALIDATION_EXP} />
+                     required={true} minLength={2} maxLength={30} pattern={NAME_VALIDATION_EXP}
+              />
             </label>
             <label className="profile__field">
               <span className="profile__field-title">E-mail</span>
               <input type="text" name="email" value={email}
                      onChange={(evt) => {setEmail(evt.target.value)}}
-                     readOnly={!status.includes('editing')}
                      className="profile__field-input"
-                     required={true} pattern={EMAIL_VALIDATION_EXP} />
+                     required={true} pattern={EMAIL_VALIDATION_EXP}
+              />
             </label>
           </fieldset>
           <p className={`profile__error ${!status.includes('editing') && "profile__error_inactive"}`}>
