@@ -52,14 +52,11 @@ function AllMovies (props) {
   }
 
   React.useEffect(() => {
+    if (!localStorage.getItem('moviesFiltered')) {console.log(1); handleSearch('', false)};
     const rows = handleResize();
     setMoviesShown(moviesFiltered.slice(0, rows.startNumber * rows.moviesPerRow));
     localStorage.setItem('moviesFiltered', JSON.stringify(moviesFiltered));
   }, [moviesFiltered]);
-
-  React.useEffect(() => {
-    handleSearch('', false);
-  }, []);
 
   return (
     <Movies moviesList={moviesShown}
